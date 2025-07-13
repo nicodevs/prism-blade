@@ -1,7 +1,8 @@
 {
   "name": "prism-blade",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
+  "module": "dist/prism-blade.js",
   "scripts": {
     "build": "rollup -c",
     "test": "vitest"
@@ -16,6 +17,6 @@
     "access": "public"
   },
   "files": [
-    "dist", "README.md", "LICENSE.md"
+    "dist"
   ]
 }
