@@ -1,0 +1,21 @@
+{
+  "name": "prism-blade",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "prismjs": "^1.30.0",
+    "rollup": "^4.45.0",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}
