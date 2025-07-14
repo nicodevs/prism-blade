@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rollup -c",
     "test": "vitest run",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "deploy-docs": "gh-pages -d docs/dist"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
@@ -14,7 +15,8 @@
     "globals": "^16.3.0",
     "prismjs": "^1.30.0",
     "rollup": "^4.45.0",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "gh-pages": "^6.3.0"
   },
   "license": "MIT",
   "publishConfig": {
