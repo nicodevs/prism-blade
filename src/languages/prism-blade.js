@@ -50,7 +50,38 @@ const createBlockPattern = (tagName, language) => ({
   }
 });
 
+function nonBladeMarkup(obj) {
+  const clone = structuredClone(obj);
+
+  Prism.languages.DFS(clone, (key, value) => {
+    if (value && typeof value === 'object' && value.inside) {
+      value._skipBlade = true;
+    }
+  });
+
+  return clone;
+}
+
 Prism.languages.blade = Prism.languages.extend('markup', {
+  verbatim: {
+    _skipBlade: true,
+    pattern: /@verbatim[\s\S]*?@endverbatim/,
+    greedy: true,
+    inside: {
+      'keyword': {
+        pattern: /^@verbatim|@endverbatim$/,
+        alias: 'keyword'
+      },
+      'verbatim-content': {
+        _skipBlade: true,
+        pattern: /[\s\S]+/,
+        inside: {
+          rest: nonBladeMarkup(markup)
+        },
+      }
+    }
+  },
+
   'comment': [
     {
       pattern: /\{\{--[\s\S]*?--\}\}/,
@@ -171,7 +202,14 @@ Prism.languages.blade = Prism.languages.extend('markup', {
 
 // Recursively inject Blade echo patterns
 Prism.languages.DFS(Prism.languages.blade, (key, def) => {
-  if (def && typeof def === 'object' && def.inside) {
+  if (
+    def &&
+    typeof def === 'object' &&
+    def.inside &&
+    !def._skipBlade &&
+    !def.inside['blade-echo-escaped'] &&
+    !def.inside['blade-echo-unescaped']
+  ) {
     def.inside['blade-echo-escaped'] = bladeEchoPatterns['blade-echo-escaped'];
     def.inside['blade-echo-unescaped'] = bladeEchoPatterns['blade-echo-unescaped'];
   }
