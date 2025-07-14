@@ -85,4 +85,20 @@ describe('Blade syntax highlighting', () => {
     expect(highlighted).toContain('<span class="token symbol symbol">{!!</span>');
     expect(highlighted).toContain('<span class="token symbol symbol">!!}</span>');
   });
+
+  it('should not highlight as Blade the contents of @verbatim', () => {
+    const code = `<html>
+        @verbatim
+            Name of javascript {{ name }}
+            Type of appliation {{ type }}
+            <!-- and few more like these -->
+
+            <script>console.log('Loaded');</script>
+        @endverbatim
+    </html>`;
+    const highlighted = highlightBlade(code);
+    expect(highlighted).toMatchSnapshot();
+    expect(highlighted).toContain('Type of appliation {{ type }}');
+    expect(highlighted).toContain('<span class="token comment">');
+  });
 });

@@ -39,3 +39,15 @@ exports[`Blade syntax highlighting > should highlight scripts and style blocks 1
 `;
 
 exports[`Blade syntax highlighting > should highlight unscaped Blade interpolations 1`] = `"<span class="token blade-echo-unescaped variable"><span class="token symbol symbol">{!!</span> <span class="token class-name static-context">Auth</span><span class="token operator">::</span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token property">name</span> <span class="token symbol symbol">!!}</span></span>"`;
+
+exports[`Blade syntax highlighting > should not highlight as Blade the contents of @verbatim 1`] = `
+"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+        <span class="token verbatim"><span class="token keyword keyword">@verbatim</span><span class="token verbatim-content">
+            Name of javascript {{ name }}
+            Type of appliation {{ type }}
+            <span class="token comment">&lt;!-- and few more like these --></span>
+
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Loaded'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+        </span><span class="token keyword keyword">@endverbatim</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>"
+`;

@@ -35,20 +35,22 @@ const bladeEchoPatterns = {
   }
 };
 
-const createBlockPattern = (tagName, language) => ({
-  pattern: new RegExp(`<${tagName}[\\s\\S]*?>[\\s\\S]*?<\\/${tagName}>`, 'i'),
-  inside: {
-    'tag': markup.tag,
-    [`${tagName}-content`]: {
-      pattern: new RegExp(`(<${tagName}[\\s\\S]*?>)[\\s\\S]*?(?=<\\/${tagName}>)`, 'i'),
-      lookbehind: true,
-      inside: {
-        ...language,
-        ...bladeEchoPatterns
+function createBlockPattern (tagName, language) {
+  return {
+    pattern: new RegExp(`<${tagName}[\\s\\S]*?>[\\s\\S]*?<\\/${tagName}>`, 'i'),
+    inside: {
+      'tag': markup.tag,
+      [`${tagName}-content`]: {
+        pattern: new RegExp(`(<${tagName}[\\s\\S]*?>)[\\s\\S]*?(?=<\\/${tagName}>)`, 'i'),
+        lookbehind: true,
+        inside: {
+          ...language,
+          ...bladeEchoPatterns
+        }
       }
     }
-  }
-});
+  };
+};
 
 function nonBladeMarkup(obj) {
   const clone = structuredClone(obj);
