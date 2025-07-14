@@ -38,26 +38,16 @@ const bladeEchoPatterns = {
 const phpInQuotes = {
   pattern: /(["'])(?:\\[\s\S]|(?!\1)[^\\])*\1/,
   inside: {
-    'blade': {
-      pattern: /[\s\S]+/,
-      inside: {
-        ...bladeEchoPatterns,
-        rest: phpInside
-      }
-    }
+    ...bladeEchoPatterns,
+    rest: phpInside
   }
 };
 
 const phpUnquoted = {
   pattern: /[^\s'"=<>`]+/,
   inside: {
-    'blade': {
-      pattern: /[\s\S]+/,
-      inside: {
-        ...bladeEchoPatterns,
-        rest: phpInside
-      }
-    }
+    ...bladeEchoPatterns,
+    rest: phpInside
   }
 };
 
@@ -138,19 +128,25 @@ Prism.languages.blade = Prism.languages.extend('markup', {
       'special-attr': [
         // Dynamic (colon-prefixed) attribute: :foo="php"
         {
-          pattern: /\s(:[\w:-]+)=("[^"]*"|'[^']*'|[^\s'"=<>`]+)/,
+          pattern: /(:[\w:-]+)=("[^"]*"|'[^']*'|[^\s'"=<>`]+)/,
           inside: {
-            'attr-name': {
-              pattern: /^(:[\w:-]+)/,
-              alias: 'attr-name'
-            },
+            'attr-name': /^:[\w:-]+/,
+            'punctuation': /=/,
             'attr-value': {
-              pattern: /=((?:"[^"]*"|'[^']*'|[^\s'"=<>`]+))/,
+              pattern: /("[^"]*"|'[^']*'|[^\s'"=<>`]+)$/,
               inside: {
-                'punctuation': /^=/,
-                'php': {
-                  pattern: /(["'])([\s\S]*?)(["'])/,
-                  lookbehind: true,
+                'string': {
+                  pattern: /^(["'])(.*)\1$/,
+                  inside: {
+                    'punctuation': /^["']|["']$/,
+                    'php-content': {
+                      pattern: /.+/,
+                      inside: phpInside
+                    }
+                  }
+                },
+                'unquoted': {
+                  pattern: /^[^\s'"=<>`]+$/,
                   inside: phpInside
                 }
               }
@@ -159,20 +155,16 @@ Prism.languages.blade = Prism.languages.extend('markup', {
         },
         // Standard attribute with possible Blade echos: foo="{{ ... }}"
         {
-          pattern: /\s([\w:-]+)=("[^"]*"|'[^']*'|[^\s'"=<>`]+)/,
+          pattern: /([\w:-]+)=("[^"]*"|'[^']*'|[^\s'"=<>`]+)/,
           inside: {
-            'attr-name': {
-              pattern: /^([\w:-]+)/,
-              alias: 'attr-name'
-            },
+            'attr-name': /^[\w:-]+/,
+            'punctuation': /=/,
             'attr-value': {
-              pattern: /=((?:"[^"]*"|'[^']*'|[^\s'"=<>`]+))/,
+              pattern: /("[^"]*"|'[^']*'|[^\s'"=<>`]+)$/,
               inside: {
-                'punctuation': /^=/,
-                'value': [
-                  phpInQuotes,
-                  phpUnquoted
-                ]
+                'punctuation': /^["']|["']$/,
+                ...bladeEchoPatterns,
+                rest: phpInside
               }
             }
           }
