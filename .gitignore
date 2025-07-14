@@ -1,7 +1,8 @@
 node_modules
-
-demo
 dist
 src/tests
 src/themes
+docs/dist
+docs/node_modules
+docs/index.html
 TODO.md

@@ -1,18 +1,15 @@
 {
-  "name": "prism-demo",
+  "name": "prism-blade-docs",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "node generate-index.js && vite build"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
-    "vite": "^7.0.4"
-  },
-  "dependencies": {
+    "vite": "^7.0.4",
     "@nicodevs/prism-themes": "^0.0.4",
     "marked": "^16.0.0",
     "prism-blade": "^0.0.5",
