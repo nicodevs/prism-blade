@@ -2,6 +2,9 @@
 
 Blade Language syntax highlighting for Prism.
 
+- [GitHub](https://github.com/nicodevs/prism-blade)
+- [NPM](https://www.npmjs.com/package/prism-blade)
+
 ### Installation
 
 ```sh
