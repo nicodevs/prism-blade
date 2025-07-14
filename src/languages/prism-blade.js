@@ -35,22 +35,6 @@ const bladeEchoPatterns = {
   }
 };
 
-const phpInQuotes = {
-  pattern: /(["'])(?:\\[\s\S]|(?!\1)[^\\])*\1/,
-  inside: {
-    ...bladeEchoPatterns,
-    rest: phpInside
-  }
-};
-
-const phpUnquoted = {
-  pattern: /[^\s'"=<>`]+/,
-  inside: {
-    ...bladeEchoPatterns,
-    rest: phpInside
-  }
-};
-
 const createBlockPattern = (tagName, language) => ({
   pattern: new RegExp(`<${tagName}[\\s\\S]*?>[\\s\\S]*?<\\/${tagName}>`, 'i'),
   inside: {

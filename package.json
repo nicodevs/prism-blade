@@ -5,9 +5,13 @@
   "module": "dist/prism-blade.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "vitest run"
+    "test": "vitest run",
+    "lint": "eslint --fix"
   },
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "eslint": "^9.31.0",
+    "globals": "^16.3.0",
     "prismjs": "^1.30.0",
     "rollup": "^4.45.0",
     "vitest": "^3.2.4"
