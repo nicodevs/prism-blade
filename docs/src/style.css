@@ -1,0 +1,21 @@
+body {
+    font-family: sans-serif;
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+pre[class*="language-"] {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+@media (min-width: 1024px) {
+    body {
+        font-size: 24px;
+    }
+
+    pre[class*="language-"], code[class*="language-"] {
+        font-size: 18px;
+    }
+}
