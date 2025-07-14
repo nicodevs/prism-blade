@@ -5,7 +5,7 @@
   "module": "dist/prism-blade.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "devDependencies": {
     "prismjs": "^1.30.0",
