@@ -7,7 +7,7 @@ Blade Language syntax highlighting for Prism.
 
 ### Installation
 
-```sh
+```bash
 npm i prism-blade
 ```
 
@@ -25,84 +25,36 @@ const html = Prism.highlight(code, Prism.languages.blade, 'blade');
 
 #### Interpolation
 
-```blade
-Hello, {{ $name }}.
-The current UNIX timestamp is {{ time() }}.
-Your favorite color is {{ Auth::user()->getFavorite('color') }}.
-```
+![Interpolation](docs/images/interpolation.png)
 
 #### Interpolations in attribute values
 
-```blade
-<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
-<body class="{{ isDark ? 'dark' : 'light' }}">Hi!</body>
-```
+![Interpolations in attribute values](docs/images/interpolation-attributes.png)
 
 #### Unscaped interpolation
 
-```blade
-{!! Auth::user()->name !!}
-```
+![Unscaped interpolation](docs/images/interpolation-unscaped.png)
 
 #### Comments
 
-```blade
-{{-- This is a comment --}}
-```
+![Comments](docs/images/comments.png)
 
 #### Directives
 
-```blade
-@extends('layouts.app')
-@section('title', 'Dashboard')
-@json(['user' => Auth::user(), 'notifications' => $notifications])
-
-@can('edit-posts')
-    <p>You can edit posts.</p>
-@elsecan('view-posts')
-    <p>You can view posts.</p>
-@else
-    <p>Access denied.</p>
-@endcan
-```
+![Directives](docs/images/directives.png)
 
 #### Components
 
-```blade
-<x-alert type="error" :name="auth()->user()->name" :message="$message->getMessage()" />
-```
+![Components](docs/images/components.png)
 
 #### Scripts and style blocks
 
-```blade
-<style>
-    .card { color: red; }
-</style>
-@push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Loaded');
-        });
-    </script>
-@endpush
-```
+![Scripts and style blocks](docs/images/scripts-styles.png)
 
 #### @php directive
 
-```blade
-@php
-    $userRole = Auth::user()->role;
-@endphp
-```
+![@php directives](docs/images/directive-php.png)
 
 #### @verbatim directive
 
-```blade
-<html>
-    @verbatim
-        This will not be parsed as Blade: {{ foo }}
-        <!-- A comment -->
-        <script>console.log('Bar');</script>
-    @endverbatim
-</html>
-```
+![@verbatim directives](docs/images/directive-verbatim.png)
