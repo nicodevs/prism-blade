@@ -35,7 +35,7 @@ Your favorite color is {{ Auth::user()->getFavorite('color') }}.
 
 ```blade
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
-<body class="{{ isDark ? 'dark' : 'light' }}">Hi!</body>
+<body class="{{ $isDark ? 'dark' : 'light' }}">Hi!</body>
 ```
 
 #### Unscaped interpolation
