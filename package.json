@@ -1,6 +1,6 @@
 {
   "name": "prism-blade",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "main": "dist/prism-blade.cjs",
   "module": "dist/prism-blade.js",
@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
     "prismjs": "^1.30.0",

@@ -1,21 +1,4 @@
-(function (Prism) {
-  if (typeof Prism === 'undefined') {
-    if (typeof global !== 'undefined') {
-      try {
-        Prism = require('prismjs');
-        require('prismjs/components/prism-markup');
-        require('prismjs/components/prism-markup-templating');
-        require('prismjs/components/prism-javascript');
-        require('prismjs/components/prism-css');
-        require('prismjs/components/prism-php');
-      } catch (e) {
-        return;
-      }
-    } else {
-      return;
-    }
-  }
-
+export default function addBladeLanguage(Prism) {
   const phpInside = Prism.languages.php;
   const { markup, css, javascript } = Prism.languages;
 
@@ -230,12 +213,5 @@
 
   // Auto-register the language
   const prismBlade = Prism.languages.blade;
-
-  // Export for module systems
-  if (typeof module !== 'undefined' && module.exports) {
-    module.exports = prismBlade;
-  }
-
   return prismBlade;
-
-})(typeof window !== 'undefined' ? window.Prism : (typeof global !== 'undefined' ? global.Prism : undefined));
+}

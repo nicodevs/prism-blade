@@ -1,16 +1,19 @@
+import terser from '@rollup/plugin-terser';
+
 export default [
   // IIFE for CDN
   {
-    input: 'src/languages/prism-blade.js',
+    input: 'src/index.cdn.js',
     output: {
       file: 'dist/prism-blade.min.js',
       format: 'iife',
       name: 'PrismBlade'
-    }
+    },
+    plugins: [terser()]
   },
   // CommonJS
   {
-    input: 'src/languages/prism-blade.js',
+    input: 'src/index.cjs',
     output: {
       file: 'dist/prism-blade.cjs',
       format: 'cjs'
@@ -18,16 +21,10 @@ export default [
   },
   // ESM
   {
-    input: 'src/languages/prism-blade.js',
+    input: 'src/index.mjs',
     output: {
       file: 'dist/prism-blade.js',
-      format: 'esm',
-      banner: `import Prism from 'prismjs';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-php';`
+      format: 'esm'
     }
   }
 ];
