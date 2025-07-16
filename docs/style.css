@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    max-width: fit-content;
+    max-width: 56rem;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -10,9 +10,19 @@ a {
     text-decoration: none;
 }
 
+code[class*="language-"] {
+    background-color: #f3f3f3;
+}
+
 pre[class*="language-"] {
+    background-color: #f3f3f3;
     border: 1px solid #ccc;
     border-radius: 6px;
+}
+
+hr {
+    border: 0.25rem solid gray;
+    margin: 3rem 0rem;
 }
 
 @media (min-width: 1024px) {
