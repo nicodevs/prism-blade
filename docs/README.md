@@ -19,7 +19,7 @@ npm i prism-blade
 <!-- Get Prism from the CDN -->
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 
-<!-- Make sure to include Prism and the following language definitions -->
+<!-- Make sure to include the following language definitions -->
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
