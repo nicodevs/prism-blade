@@ -1,5 +1,5 @@
 export default [
-  // IIFE for CDN/browser usage
+  // IIFE for CDN
   {
     input: 'src/languages/prism-blade.js',
     output: {
@@ -8,7 +8,7 @@ export default [
       name: 'PrismBlade'
     }
   },
-  // CommonJS for Node.js
+  // CommonJS
   {
     input: 'src/languages/prism-blade.js',
     output: {
@@ -16,7 +16,7 @@ export default [
       format: 'cjs'
     }
   },
-  // ESM for modern bundlers
+  // ESM
   {
     input: 'src/languages/prism-blade.js',
     output: {
