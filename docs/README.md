@@ -11,6 +11,14 @@ Blade Language syntax highlighting for Prism.
 npm i prism-blade
 ```
 
+### CDN
+
+Make sure to include Prism and the following language definitions: `markup-templating`, `php`, `javascript`, and `css`. Then include the script from the CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/prism-blade@latest/dist/prism-blade.min.js"></script>
+```
+
 ### Usage
 
 ```js

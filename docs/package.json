@@ -12,7 +12,7 @@
     "vite": "^7.0.4",
     "@nicodevs/prism-themes": "^0.0.4",
     "marked": "^16.0.0",
-    "prism-blade": "^0.0.5",
+    "prism-blade": "^0.0.7",
     "prismjs": "^1.30.0"
   }
 }

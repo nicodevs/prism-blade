@@ -1,8 +1,10 @@
 {
   "name": "prism-blade",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
+  "main": "dist/prism-blade.cjs",
   "module": "dist/prism-blade.js",
+  "browser": "dist/prism-blade.min.js",
   "scripts": {
     "build": "rollup -c",
     "test": "vitest run",
@@ -23,6 +25,8 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist/prism-blade.js",
+    "dist/prism-blade.cjs",
+    "dist/prism-blade.min.js"
   ]
 }
