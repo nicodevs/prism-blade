@@ -1,10 +1,10 @@
 import Prism from 'prismjs';
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-css';
-import 'prismjs/components/prism-php';
-import addBladeLanguage from './addBladeLanguage';
+import 'prismjs/components/prism-markup.js';
+import 'prismjs/components/prism-markup-templating.js';
+import 'prismjs/components/prism-javascript.js';
+import 'prismjs/components/prism-css.js';
+import 'prismjs/components/prism-php.js';
+import addBladeLanguage from './addBladeLanguage.js';
 
 addBladeLanguage(Prism);
 
