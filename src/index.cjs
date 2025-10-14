@@ -1,9 +1,9 @@
 const Prism = require('prismjs');
-require('prismjs/components/prism-markup');
-require('prismjs/components/prism-markup-templating');
-require('prismjs/components/prism-javascript');
-require('prismjs/components/prism-css');
-require('prismjs/components/prism-php');
+require('prismjs/components/prism-markup.js');
+require('prismjs/components/prism-markup-templating.js');
+require('prismjs/components/prism-javascript.js');
+require('prismjs/components/prism-css.js');
+require('prismjs/components/prism-php.js');
 
 const addBladeLanguage = require('./addBladeLanguage.js');
 
