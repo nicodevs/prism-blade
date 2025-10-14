@@ -1,6 +1,6 @@
 {
   "name": "prism-blade",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "main": "dist/prism-blade.cjs",
   "module": "dist/prism-blade.js",
